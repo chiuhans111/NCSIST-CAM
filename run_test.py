@@ -33,6 +33,8 @@ error = np.max(CLdata1 - CLdata, axis=1)
 simulation = solver.simulate(m, result[0])
 i = 0
 
+plot(*simulation[0])
+plt.show()
 
 for data in simulation:
     fig, ax = plot(*data)
