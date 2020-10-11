@@ -31,8 +31,8 @@ class Machine:
         self.y = Axis([0, 1, 0], -100, 100)
         self.z = Axis([0, 0, 1], -100, 100)
 
-        self.a = RotationAxis([0, 0, 1], [0, 1, -1], np.pi, -np.pi)
-        self.b = RotationAxis([1, 0, 0], [1, 0, -2], np.pi, 0)
+        self.a = RotationAxis([0, 1, 1], [0, 1, -1], np.pi, -np.pi)
+        self.b = RotationAxis([1, 1, 0], [1, 0, -2], np.pi, 0)
 
         self.n = Knife([0, 0, 1], [0, -1, -3])
 

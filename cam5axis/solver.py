@@ -82,7 +82,12 @@ def backward(m: Machine, CLdata):
     v = (nb - na * a_dot_b) / (1 - a_dot_b**2)
     C = [m.a.vec]*u[:, np.newaxis] + [m.b.vec]*v[:, np.newaxis]  # 兩焦點中心
 
-    n = np.sqrt(1-np.sum(C**2, axis=1))  # 兩焦點中心 到 焦點距離
+
+    nsq = 1-np.sum(C**2, axis=1)
+
+    error = nsq<0
+
+    n = np.sqrt(nsq)  # 兩焦點中心 到 焦點距離
     N = norm(np.cross(m.a.vec,  m.b.vec))  # 中心到焦點方向向量為兩軸外積
 
     v1 = norm(C + [N] * n[:, np.newaxis])  # 兩圓焦點 1
@@ -118,4 +123,4 @@ def backward(m: Machine, CLdata):
 
         solve.append(np.concatenate([[x, y, z, a, b]], axis=1).T)
 
-    return solve
+    return solve, error

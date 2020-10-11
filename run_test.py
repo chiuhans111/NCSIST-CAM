@@ -20,21 +20,22 @@ CLdata = np.array([
 
 CLdata[:, 3:] = norm(CLdata[:, 3:])
 
-result = solver.backward(m, CLdata)
+solve, error = solver.backward(m, CLdata)
 
-CLdata1 = solver.foward(m, result[0])
+CLdata1 = solver.foward(m, solve[0])
 
-error = np.max(CLdata1 - CLdata, axis=1)
+diff = np.max(CLdata1 - CLdata, axis=1)
 
-# plt.scatter(CLdata[:, 4], error, s=4)
-# plt.show()
+print(error)
+plt.scatter(CLdata[:, 4], error, s=4)
+plt.show()
 
 
-simulation = solver.simulate(m, result[0])
+simulation = solver.simulate(m, solve[0])
 i = 0
 
-plot(*simulation[0])
-plt.show()
+# plot(*simulation[0])
+# plt.show()
 
 for data in simulation:
     fig, ax = plot(*data)
