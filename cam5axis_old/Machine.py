@@ -1,5 +1,5 @@
 import numpy as np
-from cam5axis.utils import *
+from cam5axis_old.utils import *
 
 
 class Knife:

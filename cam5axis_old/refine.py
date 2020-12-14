@@ -1,6 +1,6 @@
 import numpy as np
-from cam5axis.Machine import Machine
-from cam5axis.utils import *
+from cam5axis_old.Machine import Machine
+from cam5axis_old.utils import *
 
 # TODO: finish this....
 

@@ -1,9 +1,10 @@
-from cam5axis import solver
-from cam5axis.Machine import Machine
+from cam5axis_old import solver
+from cam5axis_old.Machine import Machine
+from cam5axis_old.utils import norm
+from cam5axis_old.visualize import plot
+
 import numpy as np
-from cam5axis.utils import norm
 import matplotlib.pyplot as plt
-from cam5axis.visualize import plot
 
 m = Machine()
 
@@ -47,5 +48,6 @@ for data in simulation:
 
     plt.savefig("./render/{:04d}.png".format(i))
     plt.close()
+    # plt.pause(0.01)
     print(i)
     i+=1
